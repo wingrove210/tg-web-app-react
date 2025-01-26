@@ -4,11 +4,11 @@ import Header from "./components/Header/Header";
 import { useTelegram } from "./hooks/useTelegram";
 import { Routes, Route } from "react-router-dom";
 import ProductList from "./components/ProductList/ProductList";
-import ProductItem from "./components/ProductItem/ProductItem";
+// import ProductItem from "./components/ProductItem/ProductItem";
 import FormComponent from "./components/Form/Form"; // Your custom form component
 
 function App() {
-  const { tg, onToggleButton } = useTelegram();
+  const { tg } = useTelegram();
 
   useEffect(() => {
     tg.ready();

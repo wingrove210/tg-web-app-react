@@ -22,7 +22,7 @@ const getTotalPrice = (items = []) => {
 }
 
 const ProductList = () => {
-    const [addedItems, setAddedItems] = useState([])
+    const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(() => {
@@ -31,7 +31,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://192.168.0.2:8000/web-data', {
+        fetch('http://85.119.146.179:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,6 @@ const ProductList = () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData, tg])
-
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -69,6 +68,7 @@ const ProductList = () => {
             })
         }
     }
+
     return (
         <div className={'list'}>
             {products.map(item => (
